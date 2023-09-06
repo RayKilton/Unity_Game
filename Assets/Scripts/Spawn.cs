@@ -16,17 +16,25 @@ public class Spawn : MonoBehaviour
         None
     }
 
-    public VariantHexes Hex;
+    public GameObject Hex;
     private int rand;
     private bool spawned = false;
     private float waitTime = 3f;
 
+    //int hexQuantity = 0;
     private void Start()
     {
-        Hex = GameObject.FindGameObjectWithTag("points").GetComponent<VariantHexes>();////
+        //Hex = GameObject.FindGameObjectWithTag("points").GetComponent<VariantHexes>();////
         Destroy(gameObject, waitTime);
-        Invoke("Spawned", 0.2f);
+        //if (hexQuantity < 21)
+        for (int hexQuantity = 0; hexQuantity < 2; hexQuantity++)
+        {
+            //Invoke("Spawned", 0.2f);
+            Spawned();
+            Debug.Log(hexQuantity);
+        }        
     }
+
     public void Spawned()
     {
         if (!spawned)
